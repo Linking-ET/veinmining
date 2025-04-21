@@ -34,7 +34,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
     - name: Set execute permissions for gradlew
-      run: chmod +x ./gradlew
+      run: chmod +x -R ./*
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
@@ -54,7 +54,7 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       with:
         name: build-jars
-        path: ./build/**/**/*.jar
+        path: ./build/libs/*.jar
 
   dependency-submission:
 
